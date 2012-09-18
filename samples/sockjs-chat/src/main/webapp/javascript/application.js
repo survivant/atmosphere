@@ -16,7 +16,7 @@ $(function () {
         loginurl = pathname.substr(1, lastdot);
     }
     
-    var client_opts = {"url":"http://localhost:8080/atmosphere-sockjs-chat/chat","sockjs_opts":{"devel":true,"debug":true}};
+    var client_opts = {"url":"http://localhost:8080/chat","sockjs_opts":{"devel":true,"debug":true}};
     
     function log(a) {
             if ('console' in window && 'log' in window.console) {
