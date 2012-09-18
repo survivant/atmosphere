@@ -49,6 +49,8 @@
         <module>socketio-chat</module>
         <module>native-socketio-chat</module>
         <module>websocket-chat</module>
+        
+        <module>sockjs-chat</module>
 
         <!-- Cometd -->
         <module>cometd</module>

@@ -25,5 +25,6 @@
         <module>jetty-websocketdraft8</module>
         <module>socketio</module>
         <module>cometd</module>
+        <module>sockjs</module>
     </modules>
 </project>
