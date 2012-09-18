@@ -27,13 +27,13 @@ import org.atmosphere.cpr.AtmosphereResponse;
 import org.atmosphere.cpr.FrameworkConfig;
 import org.atmosphere.sockjs.SockjsSessionManager;
 import org.atmosphere.sockjs.SockjsSessionOutbound;
+import org.atmosphere.sockjs.transport.IFrameTransport;
 import org.atmosphere.sockjs.transport.SockjsPacketImpl;
 import org.atmosphere.sockjs.transport.SockjsSessionManagerImpl;
 import org.atmosphere.sockjs.transport.Transport;
 import org.atmosphere.sockjs.transport.WebSocketTransport;
 import org.atmosphere.sockjs.transport.XHRPollingTransport;
 import org.atmosphere.sockjs.transport.XHRStreamingTransport;
-import org.atmosphere.sockjs.transport2.IFrameTransport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -189,7 +189,7 @@ public class SockjsAtmosphereInterceptor implements AtmosphereInterceptor {
                             if (p == null) {
                                 r.getResponse().getOutputStream().write(data);
                             } else {
-                                write(new String(data, r.request().getCharacterEncoding()));
+                            	write(r, new String(data, r.request().getCharacterEncoding()));
                             }
                             return this;
                         }
@@ -201,7 +201,7 @@ public class SockjsAtmosphereInterceptor implements AtmosphereInterceptor {
                             if (p == null) {
                                 r.getResponse().getOutputStream().write(data, offset, length);
                             } else {
-                                write(new String(data, offset, length, r.request().getCharacterEncoding()));
+                                write(r, new String(data, offset, length, r.request().getCharacterEncoding()));
                             }
                             return this;
                         }
